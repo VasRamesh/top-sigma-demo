@@ -1,8 +1,4 @@
-import pprint
 import scrapetube
-
-printer = pprint.PrettyPrinter()
-channelId = 'UCbojg-FJgI1L6iLWUzgcsww'
 
 # Get all videos in channel
 def scrape_channel(channelId:str)-> list:

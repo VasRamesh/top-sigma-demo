@@ -1,10 +1,23 @@
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+from data_collection import scrape_channel
+from data_cleaning import add_transcript, cleanup
+from saving import save_with_pkl, check_exists
+import pprint
 
+channelId = 'UCbojg-FJgI1L6iLWUzgcsww'
+printer = pprint.PrettyPrinter()
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    if not check_exists("videos.pkl"):
+        videos = scrape_channel(channelId)
+        add_transcript(videos)
+        cleanup(videos)
+        save_with_pkl(videos)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    # <- path already exists, build model in here
+
+
+
+
+
+
+
